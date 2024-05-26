@@ -1,6 +1,7 @@
 let cart = [];
 
 exports.addToCart = (req, res) => {
+  console.log('Received request to add to cart');
   const { productId, quantity } = req.body;
   if (!productId || !quantity) {
     return res.status(400).send({ message: 'ProductId and quantity are required' });
@@ -10,5 +11,6 @@ exports.addToCart = (req, res) => {
 };
 
 exports.getCart = (req, res) => {
+  console.log('Received request to get cart');
   res.status(200).send(cart);
 };
