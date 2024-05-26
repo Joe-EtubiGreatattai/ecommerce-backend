@@ -9,6 +9,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// Default route
+app.get('/', (req, res) => {
+  res.send({ message: 'Welcome to our eCommerce API!' });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/cart', cartRoutes);
 
