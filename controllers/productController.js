@@ -1,15 +1,14 @@
 // controllers/productController.js
 const Product = require('../models/Product');
 
-// Get all products
 exports.getProducts = async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.status(200).json(products);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
+    try {
+      const products = await Product.find({}, null, { maxTimeMS: 60000 });
+      res.status(200).json(products);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  };
 
 // Get a single product
 exports.getProductById = async (req, res) => {
