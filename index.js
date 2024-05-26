@@ -1,8 +1,10 @@
+// index.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const cartRoutes = require('./routes/cartRoutes');
+const productRoutes = require('./routes/productRoutes'); // Import the product routes
 const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
@@ -16,6 +18,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/api/products', productRoutes); // Add the product routes
 
 // Error handling middleware
 app.use(errorHandler);
