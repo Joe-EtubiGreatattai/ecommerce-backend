@@ -1,4 +1,3 @@
-// models/Product.js
 const mongoose = require('../db/db');
 
 const productSchema = new mongoose.Schema({

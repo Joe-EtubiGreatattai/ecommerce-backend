@@ -1,4 +1,3 @@
-// models/Cart.js
 const mongoose = require('../db/db');
 
 const cartSchema = new mongoose.Schema({
