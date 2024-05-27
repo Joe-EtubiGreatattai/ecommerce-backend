@@ -1,6 +1,4 @@
-// index.js
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const cartRoutes = require('./routes/cartRoutes');
@@ -8,7 +6,8 @@ const productRoutes = require('./routes/productRoutes');
 const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cors());
 
 // Default route
@@ -16,7 +15,7 @@ app.get('/', (req, res) => {
   res.send({ message: 'Welcome to our eCommerce API!' });
 });
 
-app.use('/api/auth', authRoutes);
+app.use('/api', authRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/products', productRoutes);
 
